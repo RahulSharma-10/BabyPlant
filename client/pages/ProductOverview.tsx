@@ -13,9 +13,7 @@ function classNames(...classes : string[]) {
 }
 
 function Example( { router: { query } }){
-
   const product= JSON.parse(query.object);
-
   return (
   <div>
     <Navbar/>
