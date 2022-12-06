@@ -5,6 +5,7 @@ import Benefits from "../components/Benefits";
 import Footer from "../components/Footer";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import Featured from "../components/Featured/Featured";
 
 export default function Home() {
 
@@ -20,7 +21,9 @@ export default function Home() {
       <Navbar />
       <Flow />
       <Benefits />
+      <Featured/>
       <Footer />
+      
     </div>
   );
 }
