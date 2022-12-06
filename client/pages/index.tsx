@@ -15,7 +15,6 @@ export default function Home() {
   //     .get("http://localhost:3001/read")
   //     .then(response => setProducts(response.data));
   // }, []);
-
   return (
     <div>
       <Navbar />

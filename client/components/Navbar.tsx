@@ -1,40 +1,53 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import {useRouter} from 'next/router';
 
 let num = 0;
 
-// const location = useLocation(); Set-Up Routing on NavBar
-// console.log(location);
 
-
-// switch(location.pathname){
-//   case "/":
-//     num = 0;
-//     break;
-//   case "/product":
-//     num = 1;
-//     break;
-//   case "/about":
-//     num= 2;
-//     break;
-// }
 const navigation = [
 
-  { name: 'Home', href: '#', current: false },
-  { name: 'Product', href: '#product', current: false },
+  { name: 'Home', href: '/', current: false },
+  { name: 'Product', href: 'product', current: false },
   { name: 'Projects', href: '#', current: false },
 ]
 
-navigation[num].current = true;
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
+function routeNav(idx: number)
+{
+  for(let i =0; i<3;i++)
+    {
+      if(i==idx)
+      {
+        navigation[i].current= true;
+        continue;
+      }
+      navigation[i].current= false;
+    }
+}
+
 export default function Example() {
+  
+  //Routing NavBar
+  const tot = useRouter();
+  if(tot.pathname == "/")
+  {
+    routeNav(0);
+  }else if(tot.pathname == "/product")
+  {
+    routeNav(1);
+  }else{
+    routeNav(2);
+  }
+
   return (
+
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
