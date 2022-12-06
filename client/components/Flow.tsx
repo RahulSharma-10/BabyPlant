@@ -1,8 +1,23 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useSpring, animated, config } from 'react-spring'
+import {useState} from 'react'
 
+function Text() {
+  const [flip, set] = useState(false)
+  const props = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    reset: true,
+    reverse: flip,
+    delay: 200,
+    config: config.molasses,
+    onRest: () => set(!flip),
+  })
 
+  return <animated.h1 style={props}>hello</animated.h1>
+}
 export default function Flow() {
     return (
   <section className="bg-gray-900 text-white">
@@ -16,6 +31,7 @@ export default function Flow() {
           src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
           className="absolute inset-0 h-full w-full object-cover"
         />
+
       </div>
 
       <div className="lg:py-24">
@@ -28,7 +44,6 @@ export default function Flow() {
         </p>
 
         <a
-          href="#"
           className="mt-8 inline-flex items-center rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
         >
           <span className="text-sm font-medium"> Get Started </span>
