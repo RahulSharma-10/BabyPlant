@@ -1,13 +1,33 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+// import { useLocation } from 'react-router-dom';
 
+let num = 0;
+
+// const location = useLocation(); Set-Up Routing on NavBar
+// console.log(location);
+
+
+// switch(location.pathname){
+//   case "/":
+//     num = 0;
+//     break;
+//   case "/product":
+//     num = 1;
+//     break;
+//   case "/about":
+//     num= 2;
+//     break;
+// }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
+
+  { name: 'Home', href: '#', current: false },
+  { name: 'Product', href: '#product', current: false },
   { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
 ]
+
+navigation[num].current = true;
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
