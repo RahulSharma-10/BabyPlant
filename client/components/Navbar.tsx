@@ -41,11 +41,13 @@ export default function Example() {
   if(tot.pathname == "/")
   {
     routeNav(0);
-  }else if(tot.pathname == "/product")
+  }else if(tot.pathname == "/about-us")
   {
-    routeNav(1);
-  }else{
     routeNav(2);
+  }else if(tot.pathname == "knowledge"){
+    routeNav(3);
+  }else{
+    routeNav(1);
   }
 
   return (

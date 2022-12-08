@@ -12,6 +12,7 @@ function classNames(...classes : string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
+
 function Example( { router: { query } }){
   const product= JSON.parse(query.object);
   return (
